@@ -1,0 +1,24 @@
+#examples:
+from pyshell import *
+easy_install = [
+    'pyyaml',
+    'thrift',
+    'jinja2',
+    'mlogging',
+    'ujson',
+    'mmh3',
+    'pycurl',
+    'gearman',
+    'pyquery',
+    'BeautifulSoup4',
+    'robotframework',
+    'simplejson',
+    'lxml',
+    ]
+bin_path = '/usr/local/bin/easy_install'
+hosts = ['10.0.0.23']
+for host in hosts:
+    env.host_string = host
+    env.user = 'work'
+    for package in easy_install:
+        ret = remote_shell('sudo /usr/local/bin/easy_install %s' % package, capture = True, warn_only = True)
